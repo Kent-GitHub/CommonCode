@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:background="@drawable/toast_corners"
+             android:paddingBottom="12px"
+             android:paddingLeft="30px"
+             android:paddingRight="30px"
+             android:paddingTop="12px">
+
+    <TextView
+        android:id="@+id/custom_toast_content_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#ffffffff"
+        android:textSize="20px"/>
+</FrameLayout>

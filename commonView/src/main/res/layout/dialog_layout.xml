@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/root_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/dialog_bg">
+
+    <TextView
+        android:id="@+id/dialog_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15px"
+        android:layout_marginEnd="30px"
+        android:layout_marginStart="30px"
+        android:layout_marginTop="15px"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:lines="1"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:text="提示"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dialog_title_size"/>
+
+    <View
+        android:id="@+id/dialog_divide"
+        style="@style/dialog_divide_style"
+        android:layout_below="@+id/dialog_title_tv"/>
+
+    <TextView
+        android:id="@+id/dialog_body_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/dialog_divide"
+        android:layout_marginBottom="100px"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="15px"
+        android:scrollbars="vertical"
+        android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈\n哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dialog_body_size"/>
+
+    <FrameLayout
+        android:layout_below="@+id/dialog_divide"
+        android:id="@+id/dialog_custom_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="100px"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="15px">
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/dialog_ok_btn"
+        style="@style/dialog_ok_btn_style"
+        android:layout_width="135px"
+        android:layout_height="43px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="23px"
+        android:layout_marginEnd="23px"/>
+
+    <Button
+        android:id="@+id/dialog_cancel_btn"
+        style="@style/dialog_cancel_btn_style"
+        android:layout_width="135px"
+        android:layout_height="43px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="23px"
+        android:layout_marginStart="23px"/>
+
+    <Button
+        android:id="@+id/dialog_center_btn"
+        style="@style/dialog_ok_btn_style"
+        android:layout_width="135px"
+        android:layout_height="43px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23px"
+        android:visibility="gone"/>
+
+</RelativeLayout>
