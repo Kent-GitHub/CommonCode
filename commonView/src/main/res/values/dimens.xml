@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="dialog_title_size">28px</dimen>
-    <dimen name="dialog_body_size">25px</dimen>
-    <dimen name="dialog_btn_text_size">25px</dimen>
-</resources>

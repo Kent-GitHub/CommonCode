@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dialog_title_ts">28px</dimen>
+    <dimen name="dialog_body_ts">25px</dimen>
+    <dimen name="dialog_btn_text_size">25px</dimen>
+    <dimen name="dialog_btn_w">180px</dimen>
+    <dimen name="dialog_btn_h">54px</dimen>
+    <dimen name="dialog_btn_mgb">30px</dimen>
+    <dimen name="dialog_btn_mge">30px</dimen>
+    <dimen name="dialog_btn_mgs">30px</dimen>
+    <dimen name="dialog_content_mgb">114px</dimen>
+    <dimen name="dialog_content_mge">30px</dimen>
+    <dimen name="dialog_content_mgs">30px</dimen>
+    <dimen name="dialog_content_mgt">48px</dimen>
+
+    <dimen name="toast_tv_mgt">12px</dimen>
+    <dimen name="toast_tv_mgb">12px</dimen>
+    <dimen name="toast_tv_mgs">30px</dimen>
+    <dimen name="toast_tv_mge">30px</dimen>
+    <dimen name="custom_toast_ts">20px</dimen>
+    <dimen name="loading_pb_size">26dp</dimen>
+</resources>

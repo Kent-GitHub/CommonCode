@@ -44,14 +44,8 @@ captures/
 .idea/dictionaries
 .idea/libraries
 
-# Keystore files
-*.jks
-
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
-
-# Google Services (e.g. APIs or Firebase)
-google-services.json
 
 # Freeline
 freeline.py
@@ -122,8 +116,6 @@ obj/
 .idea/dynamic.xml
 .idea/uiDesigner.xml
 
-# Keystore files
-
 # OS-specific files
 .DS_Store
 .DS_Store?
@@ -136,12 +128,13 @@ Thumbs.db
 # Legacy Eclipse project files
 .classpath
 .project
+.cproject
+.settings/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 
@@ -166,11 +159,11 @@ crashlytics-build.properties
 fabric.properties
 
 ### AndroidStudio Patch ###
-# Google Services plugin
 
 !/gradle/wrapper/gradle-wrapper.jar
 
 ### Git ###
 *.orig
+
 
 # End of https://www.gitignore.io/api/git,android,androidstudio

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2017 Kent_Lee. All Rights Reserved.
+  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/dialog_bg">
+
+    <TextView
+        android:id="@+id/dialog_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15px"
+        android:layout_marginEnd="30px"
+        android:layout_marginStart="30px"
+        android:layout_marginTop="15px"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text="@string/hint"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dialog_title_ts"/>
+
+    <View
+        android:id="@+id/dialog_divide_top"
+        style="@style/dialog_divide_style"
+        android:layout_below="@id/dialog_title_tv"/>
+
+    <View
+        android:id="@+id/dialog_divide_bottom"
+        style="@style/dialog_divide_style"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="55px"/>
+
+    <FrameLayout
+        android:id="@+id/dialog_custom_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="10px">
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/dialog_divide_bottom"
+        android:layout_below="@id/dialog_divide_top"
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="10px"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/dialog_body_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lineSpacingMultiplier="1.3"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="24px"/>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55px"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/dialog_ok_btn"
+            style="@style/dialog_ok_btn_style"
+            android:layout_width="135px"
+            android:layout_height="43px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="23px"/>
+
+        <Button
+            android:id="@+id/dialog_cancel_btn"
+            style="@style/dialog_cancel_btn_style"
+            android:layout_width="135px"
+            android:layout_height="43px"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="23px"/>
+
+        <Button
+            android:id="@+id/dialog_center_btn"
+            style="@style/dialog_ok_btn_style_simple"
+            android:layout_width="135px"
+            android:layout_height="43px"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</RelativeLayout>
