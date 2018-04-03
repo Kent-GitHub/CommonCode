@@ -72,37 +72,55 @@ public class LogFileUtils {
         writeToFile("LogFileUtils_hashCode: " + this.toString() + ", elapsedRealTime: " + realTime + ", 系统启动时间: " + (realTime / day_u + "天" + sdf.format(new Date(realTime))));
     }
 
-    public void writeToFile(String msg) {
-        writeToFile(null, msg);
-    }
-
-    public void writeToFile(Exception e) {
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        e.printStackTrace(pw);
-        writeToFile(sw.toString());
-    }
-
-    public void writeToFile(String string, Exception e) {
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        e.printStackTrace(pw);
-        writeToFile(string + sw.toString());
-    }
-
     public static void setLogFileEnable(boolean logFileEnable) {
         isLogFileEnable = logFileEnable;
     }
 
-    public void writeToFile(String type, String msg) {
-        //Log.e(TAG, "writeToFile: " + msg);
+    public void writeToFile(Exception e) {
+        writeToFile(e, false);
+    }
+
+    public void writeToFile(Exception e, boolean logcat) {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+        writeToFile(sw.toString(), logcat);
+    }
+
+    public void writeToFile(String tag, Exception e) {
+        writeToFile(tag, e, false);
+    }
+
+    public void writeToFile(String tag, Exception e, boolean logcat) {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+        writeToFile(tag, sw.toString(), logcat);
+    }
+
+    public void writeToFile(String msg) {
+        writeToFile(msg, false);
+    }
+
+    public void writeToFile(String msg, boolean logcat) {
+        writeToFile(null, msg, logcat);
+    }
+
+    public void writeToFile(String tag, String msg) {
+        writeToFile(tag, msg, false);
+    }
+
+    public void writeToFile(String tag, String msg, boolean logcat) {
+        if (logcat) {
+            Log.e(tag != null ? tag : TAG, msg);
+        }
         if (!isLogFileEnable || !initialized) return;
-        if (type == null) {
-            type = "";
+        if (tag == null) {
+            tag = "";
         }
         Date time = new Date();
         if (logFile == null) {
-            logFile = new File(LOG_PATH + fileName + "_" + type + ".txt");
+            logFile = new File(LOG_PATH + fileName + "_" + tag + ".txt");
         }
         try {
             if (createDirAuto) {
