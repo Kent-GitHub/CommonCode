@@ -36,7 +36,7 @@ public class LogFileUtils {
 
     private File logFile;
     @SuppressLint("SimpleDateFormat")
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ::: ");
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS ::: ");
 
     @SuppressLint("SimpleDateFormat")
     private SimpleDateFormat fileNameSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
