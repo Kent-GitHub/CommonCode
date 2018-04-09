@@ -112,7 +112,11 @@ public class LogFileUtils {
 
     public void writeToFile(String tag, String msg, boolean logcat) {
         if (logcat) {
-            Log.e(tag != null ? tag : TAG, msg);
+            if (msg.contains("Exception")) {
+                Log.e(tag != null ? tag : TAG, msg);
+            } else {
+                Log.i(tag != null ? tag : TAG, msg);
+            }
         }
         if (!isLogFileEnable || !initialized) return;
         if (tag == null) {
