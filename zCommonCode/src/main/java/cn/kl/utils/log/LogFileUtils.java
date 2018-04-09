@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Environment;
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.io.File;
@@ -156,7 +157,7 @@ public class LogFileUtils {
         maxCacheSize = config.maxSize;
         isLogFileEnable = config.logFileEnable;
         createDirAuto = config.createDirAuto;
-        TAG = config.tag;
+        TAG = TextUtils.isEmpty(config.tag) ? TAG : config.tag;
     }
 
 }
