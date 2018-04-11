@@ -14,14 +14,14 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>
         <item name="android:background">#666666</item>
-        <item name="android:layout_marginLeft">24px</item>
-        <item name="android:layout_marginRight">24px</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
     </style>
 
     <!--DIALOG的OK按钮-->
     <style name="dialog_ok_btn_style">
-        <item name="android:layout_width">180px</item>
-        <item name="android:layout_height">54px</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">36dp</item>
         <item name="android:textSize">@dimen/dialog_btn_text_size</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:text">@string/ok_btn</item>
@@ -31,8 +31,8 @@
 
     <!--DIALOG的OK按钮-->
     <style name="dialog_ok_btn_style_simple">
-        <item name="android:layout_width">180px</item>
-        <item name="android:layout_height">54px</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">36dp</item>
         <item name="android:textSize">@dimen/dialog_btn_text_size</item>
         <item name="android:textColor">@color/blue</item>
         <item name="android:text">@string/ok_btn</item>
@@ -42,8 +42,8 @@
 
     <!--DIALOG的CANCEL按钮-->
     <style name="dialog_cancel_btn_style">
-        <item name="android:layout_width">180px</item>
-        <item name="android:layout_height">54px</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">36dp</item>
         <item name="android:textSize">@dimen/dialog_btn_text_size</item>
         <item name="android:textColor">@color/dialog_cancel_text_color</item>
         <item name="android:text">@string/cancel_btn</item>

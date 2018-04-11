@@ -11,10 +11,10 @@
         android:id="@+id/dialog_title_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15px"
-        android:layout_marginEnd="30px"
-        android:layout_marginStart="30px"
-        android:layout_marginTop="15px"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:ellipsize="marquee"
         android:gravity="center"
         android:marqueeRepeatLimit="marquee_forever"
@@ -32,16 +32,16 @@
         android:id="@+id/dialog_divide_bottom"
         style="@style/dialog_divide_style"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="55px"/>
+        android:layout_marginBottom="36dp"/>
 
     <FrameLayout
         android:id="@+id/dialog_custom_view_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10px"
-        android:layout_marginLeft="30px"
-        android:layout_marginRight="30px"
-        android:layout_marginTop="10px">
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="6dp">
 
     </FrameLayout>
 
@@ -50,10 +50,10 @@
         android:layout_height="match_parent"
         android:layout_above="@id/dialog_divide_bottom"
         android:layout_below="@id/dialog_divide_top"
-        android:layout_marginBottom="10px"
-        android:layout_marginLeft="30px"
-        android:layout_marginRight="30px"
-        android:layout_marginTop="10px"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="6dp"
         android:scrollbars="vertical">
 
         <TextView
@@ -63,37 +63,37 @@
             android:lineSpacingMultiplier="1.3"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="24px"/>
+            android:textSize="16sp"/>
     </ScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="55px"
+        android:layout_height="36dp"
         android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/dialog_ok_btn"
             style="@style/dialog_ok_btn_style"
-            android:layout_width="135px"
-            android:layout_height="43px"
+            android:layout_width="90dp"
+            android:layout_height="28dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="23px"/>
+            android:layout_marginEnd="15dp"/>
 
         <Button
             android:id="@+id/dialog_cancel_btn"
             style="@style/dialog_cancel_btn_style"
-            android:layout_width="135px"
-            android:layout_height="43px"
+            android:layout_width="90dp"
+            android:layout_height="28dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="23px"/>
+            android:layout_marginStart="15dp"/>
 
         <Button
             android:id="@+id/dialog_center_btn"
             style="@style/dialog_ok_btn_style_simple"
-            android:layout_width="135px"
-            android:layout_height="43px"
+            android:layout_width="90dp"
+            android:layout_height="28dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:visibility="gone"/>
