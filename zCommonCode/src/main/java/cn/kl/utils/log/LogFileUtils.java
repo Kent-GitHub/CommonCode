@@ -108,7 +108,7 @@ public class LogFileUtils {
     }
 
     public void writeToFile(String tag, String msg) {
-        writeToFile(tag, msg, false);
+        writeToFile(tag, msg, true);
     }
 
     public void writeToFile(String tag, String msg, boolean logcat) {
