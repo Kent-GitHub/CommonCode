@@ -23,7 +23,7 @@ import java.util.TimeZone;
 
 public class LogFileUtils {
     private String TAG = "LogFileUtils";
-    private static boolean isLogFileEnable = true;
+    private static boolean isLogFileEnable = false;
 
     private boolean initialized;
 

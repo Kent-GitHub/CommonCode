@@ -24,6 +24,19 @@ import android.widget.TextView;
  */
 public class MyDialog extends Dialog {
 
+
+    public static final int STYLE_DEFAULT = 0;
+
+    public static final int STYLE_MD = 1;
+
+    public static final int STYLE_DARK = 2;
+
+    private static int dialogStyle = STYLE_DEFAULT;
+
+    public static void setDialogStyle(int style) {
+        dialogStyle = style;
+    }
+
     private static final String HOME_PRESSED = "com.broadsense.common.centercontrol.action.KEY_HOME_CODE_MENU_UP";
 
     private BroadcastReceiver mReceiver;
@@ -128,6 +141,9 @@ public class MyDialog extends Dialog {
 
         public MyDialog create() {
             int layoutId = R.layout.dialog_layout;
+            if (dialogStyle == STYLE_MD) {
+                layoutId = R.layout.dialog_layout_md;
+            }
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             final MyDialog dialog = new MyDialog(mContext, R.style.Dialog_My);
@@ -139,9 +155,9 @@ public class MyDialog extends Dialog {
             dialog.addContentView(view, lp);
 
             View rootView = view.findViewById(R.id.root_container);
-            Button leftBtn = (Button) view.findViewById(R.id.dialog_cancel_btn);
-            Button rightBtn = (Button) view.findViewById(R.id.dialog_ok_btn);
-            Button centerBtn = (Button) view.findViewById(R.id.dialog_center_btn);
+            TextView leftBtn = (TextView) view.findViewById(R.id.dialog_cancel_btn);
+            TextView rightBtn = (TextView) view.findViewById(R.id.dialog_ok_btn);
+            TextView centerBtn = (TextView) view.findViewById(R.id.dialog_center_btn);
             TextView titleView = (TextView) view.findViewById(R.id.dialog_title_tv);
             TextView bodyView = (TextView) view.findViewById(R.id.dialog_body_tv);
             bodyView.setMovementMethod(ScrollingMovementMethod.getInstance());
@@ -185,6 +201,12 @@ public class MyDialog extends Dialog {
                         }
                     });
             }
+            boolean doubleBtn = leftListener != null;
+            if (dialogStyle == STYLE_MD) {
+                if (!doubleBtn) {
+                    rootView.findViewById(R.id.dialog_md_line_v).setVisibility(View.GONE);
+                }
+            }
             dialog.setDialogProperty(this);
             return dialog;
         }
@@ -217,6 +239,9 @@ public class MyDialog extends Dialog {
 
         public MyDialog createNoTitle() {
             int layoutId = R.layout.dialog_no_title;
+            if (dialogStyle == STYLE_MD) {
+                layoutId = R.layout.dialog_no_title_md;
+            }
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             final MyDialog dialog = new MyDialog(mContext, R.style.Dialog_My);
@@ -229,9 +254,9 @@ public class MyDialog extends Dialog {
 
             View rootView = view.findViewById(R.id.root_container);
             FrameLayout customViewContainer = (FrameLayout) view.findViewById(R.id.dialog_custom_view_container);
-            Button leftBtn = (Button) view.findViewById(R.id.dialog_cancel_btn);
-            Button rightBtn = (Button) view.findViewById(R.id.dialog_ok_btn);
-            Button centerBtn = (Button) view.findViewById(R.id.dialog_center_btn);
+            TextView leftBtn = (TextView) view.findViewById(R.id.dialog_cancel_btn);
+            TextView rightBtn = (TextView) view.findViewById(R.id.dialog_ok_btn);
+            TextView centerBtn = (TextView) view.findViewById(R.id.dialog_center_btn);
             TextView titleView = (TextView) view.findViewById(R.id.dialog_title_tv);
             titleView.setMovementMethod(ScrollingMovementMethod.getInstance());
             titleView.setGravity(titleGravity);
@@ -272,6 +297,12 @@ public class MyDialog extends Dialog {
                         }
                     });
             }
+            boolean doubleBtn = leftListener != null;
+            if (dialogStyle == STYLE_MD) {
+                if (!doubleBtn) {
+                    rootView.findViewById(R.id.dialog_md_line_v).setVisibility(View.GONE);
+                }
+            }
             dialog.setDialogProperty(this);
             return dialog;
         }
@@ -290,9 +321,9 @@ public class MyDialog extends Dialog {
 
             View rootView = view.findViewById(R.id.root_container);
             FrameLayout customViewContainer = (FrameLayout) view.findViewById(R.id.dialog_custom_view_container);
-            Button leftBtn = (Button) view.findViewById(R.id.dialog_cancel_btn);
-            Button rightBtn = (Button) view.findViewById(R.id.dialog_ok_btn);
-            Button centerBtn = (Button) view.findViewById(R.id.dialog_center_btn);
+            TextView leftBtn = (TextView) view.findViewById(R.id.dialog_cancel_btn);
+            TextView rightBtn = (TextView) view.findViewById(R.id.dialog_ok_btn);
+            TextView centerBtn = (TextView) view.findViewById(R.id.dialog_center_btn);
             TextView titleView = (TextView) view.findViewById(R.id.dialog_title_tv);
             TextView bodyView = (TextView) view.findViewById(R.id.dialog_body_tv);
             titleView.setGravity(titleGravity);
