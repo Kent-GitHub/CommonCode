@@ -11,17 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-/**
- * packageName：com.broadsense.newpine.set.ui.custom.dialog
- * ProjectName：5_Set
- * Description：自定义DIALOG,方便统一使用
- * Author：zhouxian
- * Date：2016/10/18 12:31
- */
 public class MyDialog extends Dialog {
 
 
@@ -57,6 +49,7 @@ public class MyDialog extends Dialog {
 
         private OnDialogBtnClickListener leftListener;
         private OnDialogBtnClickListener rightListener;
+        private OnCancelListener mCancelListener;
         private Context mContext;
         private String mTitleText;
         private String mBodyText;
@@ -111,6 +104,11 @@ public class MyDialog extends Dialog {
 
         public Builder setLeftBtnText(String leftBtnText) {
             this.leftBtnText = leftBtnText;
+            return this;
+        }
+
+        public Builder setOnCancelListener(OnCancelListener cancelListener) {
+            this.mCancelListener = cancelListener;
             return this;
         }
 
@@ -201,6 +199,9 @@ public class MyDialog extends Dialog {
                         }
                     });
             }
+            if (mCancelListener != null) {
+                dialog.setOnCancelListener(mCancelListener);
+            }
             boolean doubleBtn = leftListener != null;
             if (dialogStyle == STYLE_MD) {
                 if (!doubleBtn) {
@@ -234,6 +235,9 @@ public class MyDialog extends Dialog {
             if (bgColor != -1) rootView.setBackgroundColor(bgColor);
             if (bgRes != -1) rootView.setBackgroundResource(bgRes);
             dialog.setDialogProperty(this);
+            if (mCancelListener != null) {
+                dialog.setOnCancelListener(mCancelListener);
+            }
             return dialog;
         }
 
@@ -296,6 +300,9 @@ public class MyDialog extends Dialog {
                             rightListener.onClick(dialog);
                         }
                     });
+            }
+            if (mCancelListener != null) {
+                dialog.setOnCancelListener(mCancelListener);
             }
             boolean doubleBtn = leftListener != null;
             if (dialogStyle == STYLE_MD) {
@@ -364,6 +371,9 @@ public class MyDialog extends Dialog {
                             rightListener.onClick(dialog);
                         }
                     });
+            }
+            if (mCancelListener != null) {
+                dialog.setOnCancelListener(mCancelListener);
             }
             dialog.setDialogProperty(this);
             return dialog;
