@@ -5,6 +5,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,7 +20,6 @@ import android.widget.TextView;
 
 public class MyDialog extends Dialog {
 
-
     public static final int STYLE_DEFAULT = 0;
 
     public static final int STYLE_MD = 1;
@@ -27,6 +30,10 @@ public class MyDialog extends Dialog {
 
     public static void setDialogStyle(int style) {
         dialogStyle = style;
+    }
+
+    public static int getDialogStyle(){
+        return dialogStyle;
     }
 
     private static final String HOME_PRESSED = "com.broadsense.common.centercontrol.action.KEY_HOME_CODE_MENU_UP";
@@ -59,6 +66,9 @@ public class MyDialog extends Dialog {
         private int dialogHeight = 264;
         private int titleGravity = Gravity.CENTER;
         private boolean homeDismiss;
+        private Color leftBtnColor;
+        private Color rightBtnColor;
+        private boolean reverseBtnColor;
 
         public Builder(Context context) {
             this.mContext = context;
@@ -101,6 +111,16 @@ public class MyDialog extends Dialog {
             return this;
         }
 
+        public Builder setBtnColor(Color leftBtnColor, Color rightBtnColor) {
+            this.leftBtnColor = leftBtnColor;
+            this.rightBtnColor = rightBtnColor;
+            return this;
+        }
+
+        public Builder reverseBtnColor() {
+            reverseBtnColor = true;
+            return this;
+        }
 
         public Builder setLeftBtnText(String leftBtnText) {
             this.leftBtnText = leftBtnText;
@@ -141,6 +161,8 @@ public class MyDialog extends Dialog {
             int layoutId = R.layout.dialog_layout;
             if (dialogStyle == STYLE_MD) {
                 layoutId = R.layout.dialog_layout_md;
+            } else if (dialogStyle == STYLE_DARK) {
+                layoutId = R.layout.dialog_layout_dark;
             }
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -207,6 +229,15 @@ public class MyDialog extends Dialog {
                 if (!doubleBtn) {
                     rootView.findViewById(R.id.dialog_md_line_v).setVisibility(View.GONE);
                 }
+            } else if (dialogStyle == STYLE_DARK) {
+                if (reverseBtnColor) {
+                    LayerDrawable layerLeft = (LayerDrawable) leftBtn.getBackground();
+                    GradientDrawable gradientLeft = (GradientDrawable) layerLeft.getDrawable(0);
+                    gradientLeft.setColor(Color.parseColor("#3a3e4c"));
+                    LayerDrawable layerRight = (LayerDrawable) rightBtn.getBackground();
+                    GradientDrawable gradientRight = (GradientDrawable) layerRight.getDrawable(0);
+                    gradientRight.setColor(Color.parseColor("#0d82cc"));
+                }
             }
             dialog.setDialogProperty(this);
             return dialog;
@@ -214,6 +245,9 @@ public class MyDialog extends Dialog {
 
         public MyDialog createEmptyDialog() {
             int layoutId = R.layout.dialog_empty;
+            if (dialogStyle == STYLE_DARK) {
+                layoutId = R.layout.dialog_empty_dark;
+            }
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             final MyDialog dialog = new MyDialog(mContext, R.style.Dialog_My);
@@ -245,6 +279,8 @@ public class MyDialog extends Dialog {
             int layoutId = R.layout.dialog_no_title;
             if (dialogStyle == STYLE_MD) {
                 layoutId = R.layout.dialog_no_title_md;
+            } else if (dialogStyle == STYLE_DARK) {
+                layoutId = R.layout.dialog_no_title_dark;
             }
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -293,6 +329,7 @@ public class MyDialog extends Dialog {
                 leftBtn.setVisibility(View.GONE);
                 rightBtn.setVisibility(View.GONE);
                 centerBtn.setVisibility(View.VISIBLE);
+                centerBtn.setText(rightBtnText);
                 if (rightListener != null)
                     centerBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -364,6 +401,7 @@ public class MyDialog extends Dialog {
                 leftBtn.setVisibility(View.GONE);
                 rightBtn.setVisibility(View.GONE);
                 centerBtn.setVisibility(View.VISIBLE);
+                centerBtn.setText(rightBtnText);
                 if (rightListener != null)
                     centerBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
