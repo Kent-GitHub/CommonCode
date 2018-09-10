@@ -7,13 +7,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.text.method.ScrollingMovementMethod;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.lang.reflect.Method;
 
 import static com.broadsense.view.CommonDialog.Builder.TYPE_EMPTY;
 
@@ -412,7 +412,13 @@ public class CommonDialog extends Dialog {
             int newTop = top == -1 ? oldTop : top;
             int newRight = right == -1 ? oldRight : right;
             int newBottom = bottom == -1 ? oldBottom : bottom;
-            ((ViewGroup.MarginLayoutParams) lp).setMarginsRelative(newLeft, newTop, newRight, newBottom);
+            //((ViewGroup.MarginLayoutParams) lp).setMarginsRelative(newLeft, newTop, newRight, newBottom);
+            try {
+                Method setMarginsRelative = lp.getClass().getMethod("setMarginsRelative", int.class, int.class, int.class, int.class);
+                setMarginsRelative.invoke(lp,newLeft,newTop,newRight,newBottom);
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
             view.setLayoutParams(lp);
         }
     }
