@@ -27,6 +27,7 @@
         android:layout_below="@id/dialog_title_tv" />
 
     <ScrollView
+        android:id="@+id/dialog_body_tv_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/dialog_divide"
@@ -50,10 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/dialog_divide"
-        android:layout_marginBottom="66dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginBottom="66dp">
 
     </FrameLayout>
 

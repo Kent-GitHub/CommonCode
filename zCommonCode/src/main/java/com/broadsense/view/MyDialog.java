@@ -17,7 +17,9 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
+/**
+ * @deprecated Use {@link CommonDialog} instead.
+ */
 public class MyDialog extends Dialog {
 
     public static final int STYLE_DEFAULT = 0;
@@ -32,7 +34,7 @@ public class MyDialog extends Dialog {
         dialogStyle = style;
     }
 
-    public static int getDialogStyle(){
+    public static int getDialogStyle() {
         return dialogStyle;
     }
 
@@ -137,8 +139,28 @@ public class MyDialog extends Dialog {
             return this;
         }
 
+        public Builder setLeftBtnClickDismiss() {
+            this.leftListener = new OnDialogBtnClickListener() {
+                @Override
+                public void onClick(MyDialog dialog) {
+                    dialog.dismiss();
+                }
+            };
+            return this;
+        }
+
         public Builder setRightBtnClickListener(OnDialogBtnClickListener rightListener) {
             this.rightListener = rightListener;
+            return this;
+        }
+
+        public Builder setRightBtnClickDismiss() {
+            this.rightListener = new OnDialogBtnClickListener() {
+                @Override
+                public void onClick(MyDialog dialog) {
+                    dialog.dismiss();
+                }
+            };
             return this;
         }
 
@@ -212,7 +234,9 @@ public class MyDialog extends Dialog {
                 leftBtn.setVisibility(View.GONE);
                 rightBtn.setVisibility(View.GONE);
                 centerBtn.setVisibility(View.VISIBLE);
-                centerBtn.setText(rightBtnText);
+                if (rightBtnText != null) {
+                    centerBtn.setText(rightBtnText);
+                }
                 if (rightListener != null)
                     centerBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -329,7 +353,9 @@ public class MyDialog extends Dialog {
                 leftBtn.setVisibility(View.GONE);
                 rightBtn.setVisibility(View.GONE);
                 centerBtn.setVisibility(View.VISIBLE);
-                centerBtn.setText(rightBtnText);
+                if (rightBtnText != null) {
+                    centerBtn.setText(rightBtnText);
+                }
                 if (rightListener != null)
                     centerBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -401,7 +427,9 @@ public class MyDialog extends Dialog {
                 leftBtn.setVisibility(View.GONE);
                 rightBtn.setVisibility(View.GONE);
                 centerBtn.setVisibility(View.VISIBLE);
-                centerBtn.setText(rightBtnText);
+                if (rightBtnText != null) {
+                    centerBtn.setText(rightBtnText);
+                }
                 if (rightListener != null)
                     centerBtn.setOnClickListener(new View.OnClickListener() {
                         @Override

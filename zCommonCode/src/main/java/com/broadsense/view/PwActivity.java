@@ -21,7 +21,8 @@ public class PwActivity extends Activity {
 
     private void initDialog() {
         final EditText ed = new EditText(this);
-        MyDialog myDialog = new MyDialog.Builder(this).setCustomView(ed)
+        MyDialog myDialog = new MyDialog.Builder(this)
+                .setCustomView(ed)
                 .setLeftBtnText("取消")
                 .setRightBtnText("确定")
                 .setLeftBtnClickListener(new MyDialog.OnDialogBtnClickListener() {

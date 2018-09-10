@@ -12,14 +12,14 @@
         android:ellipsize="marquee"
         android:gravity="center"
         android:marqueeRepeatLimit="marquee_forever"
-        android:paddingBottom="10dp"
         android:paddingEnd="20dp"
         android:paddingStart="20dp"
         android:paddingTop="20dp"
         android:singleLine="true"
         android:text="@string/hint"
         android:textColor="#fff"
-        android:textSize="@dimen/dialog_title_ts" />
+        android:textSize="@dimen/common_dialog_title_ts"
+        android:textStyle="bold" />
 
     <View
         android:id="@+id/dialog_divide"
@@ -27,37 +27,8 @@
         android:layout_below="@id/dialog_title_tv"
         android:visibility="gone" />
 
-    <ScrollView
-        android:id="@+id/dialog_body_tv_parent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/dialog_divide"
-        android:layout_marginBottom="66dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginRight="48dp"
-        android:fillViewport="true"
-        android:scrollbars="vertical">
-
-        <TextView
-            android:id="@+id/dialog_body_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lineSpacingMultiplier="1.8"
-            android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈\n哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
-            android:textColor="#fff"
-            android:textSize="@dimen/dialog_body_ts" />
-    </ScrollView>
-
-    <FrameLayout
-        android:id="@+id/dialog_custom_view_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/dialog_divide"
-        android:layout_marginBottom="66dp">
-
-    </FrameLayout>
-
     <RelativeLayout
+        android:id="@+id/bottom_btn_layout"
         android:layout_width="wrap_content"
         android:layout_height="53dp"
         android:layout_alignParentBottom="true">
@@ -103,9 +74,26 @@
             android:visibility="gone" />
     </RelativeLayout>
 
-    <!--<RelativeLayout-->
-    <!--android:background="@drawable/dialog_bg_dark"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"/>-->
+    <TextView
+        android:id="@+id/dialog_body_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_btn_layout"
+        android:layout_below="@id/dialog_title_tv"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:lineSpacingExtra="12dp"
+        android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+        android:textColor="#fff"
+        android:textSize="@dimen/common_dialog_body_ts" />
+
+    <FrameLayout
+        android:id="@+id/dialog_custom_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_btn_layout"
+        android:layout_below="@id/dialog_title_tv">
+
+    </FrameLayout>
 
 </RelativeLayout>

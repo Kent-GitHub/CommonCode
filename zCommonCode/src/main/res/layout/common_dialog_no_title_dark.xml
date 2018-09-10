@@ -5,20 +5,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/dialog_bg_dark">
 
-    <TextView
-        android:id="@+id/dialog_title_tv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/dialog_content_mgb"
-        android:layout_marginEnd="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="@dimen/dialog_content_mgt"
-        android:gravity="center_horizontal"
-        android:lineSpacingMultiplier="1.8"
-        android:scrollbars="vertical"
-        android:textColor="#fff"
-        android:textSize="@dimen/dialog_body_ts" />
-
     <RelativeLayout
         android:id="@+id/bottom_btn_layout"
         android:layout_width="wrap_content"
@@ -72,6 +58,20 @@
             android:visibility="gone" />
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/dialog_body_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_btn_layout"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.8"
+        android:scrollbars="vertical"
+        android:textColor="#fff"
+        android:textSize="@dimen/common_dialog_body_ts" />
 
     <FrameLayout
         android:id="@+id/dialog_custom_view_container"

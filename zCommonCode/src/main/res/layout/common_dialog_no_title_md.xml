@@ -3,21 +3,7 @@
     android:id="@+id/root_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dialog_bg_dark">
-
-    <TextView
-        android:id="@+id/dialog_title_tv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/dialog_content_mgb"
-        android:layout_marginEnd="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="@dimen/dialog_content_mgt"
-        android:gravity="center_horizontal"
-        android:lineSpacingMultiplier="1.8"
-        android:scrollbars="vertical"
-        android:textColor="#fff"
-        android:textSize="@dimen/dialog_body_ts" />
+    android:background="@drawable/dialog_bg">
 
     <RelativeLayout
         android:id="@+id/bottom_btn_layout"
@@ -31,6 +17,13 @@
             android:layout_height="1px"
             android:background="#999" />
 
+        <View
+            android:id="@+id/dialog_md_line_v"
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="#999" />
+
         <LinearLayout
             android:id="@+id/dialog_md_btn_layout"
             android:layout_width="match_parent"
@@ -41,22 +34,20 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/btn_dark_bg_left"
                 android:gravity="center"
                 android:text="@string/cancel_btn"
-                android:textColor="#fff"
-                android:textSize="20sp" />
+                android:textColor="#333"
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/dialog_ok_btn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/btn_dark_bg_right"
                 android:gravity="center"
                 android:text="@string/ok_btn"
-                android:textColor="#fff"
-                android:textSize="20sp" />
+                android:textColor="#333"
+                android:textSize="17sp" />
 
         </LinearLayout>
 
@@ -64,14 +55,26 @@
             android:id="@+id/dialog_center_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/btn_dark_bg_center"
             android:gravity="center"
             android:text="@string/ok_btn"
-            android:textColor="#fff"
-            android:textSize="20sp"
+            android:textColor="#333"
+            android:textSize="17sp"
             android:visibility="gone" />
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/dialog_body_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_btn_layout"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:scrollbars="vertical"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dialog_body_ts" />
 
     <FrameLayout
         android:id="@+id/dialog_custom_view_container"
@@ -80,4 +83,6 @@
         android:layout_above="@id/bottom_btn_layout">
 
     </FrameLayout>
+
+
 </RelativeLayout>
