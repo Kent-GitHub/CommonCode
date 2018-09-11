@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.text.method.ScrollingMovementMethod;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -318,6 +319,27 @@ public class CommonDialog extends Dialog {
         if (builder.reverseBtnBg) {
             reverseBtnBg();
         }
+        if (isBigDialog(view)) {
+            setTextSize(getBodyTextView(), 26);
+            setBodyTextSpacing(16);
+        } else {
+            setBodyTextSpacing(18);
+        }
+    }
+
+    public void setBodyTextSpacing(int spacing) {
+        TextView bodyTextView = getBodyTextView();
+        if (bodyTextView != null) {
+            bodyTextView.setLineSpacing(spacing, 1);
+        }
+    }
+
+    private boolean isBigDialog(View view) {
+        ViewGroup.LayoutParams rootViewLp = view.getLayoutParams();
+        Context context = view.getContext();
+        int dialogWidth = context.getResources().getDimensionPixelSize(R.dimen.dialog_w_big);
+        int dialogHeight = context.getResources().getDimensionPixelSize(R.dimen.dialog_h_big);
+        return rootViewLp.width >= dialogWidth && rootViewLp.height >= dialogHeight;
     }
 
     private void reverseBtnBg() {
@@ -392,6 +414,16 @@ public class CommonDialog extends Dialog {
         }
     }
 
+    public void setTextSize(TextView view, float sizeInPx) {
+        setTextSize(view, TypedValue.COMPLEX_UNIT_PX, sizeInPx);
+    }
+
+    public void setTextSize(TextView view, int unit, float size) {
+        if (view != null) {
+            view.setTextSize(unit, size);
+        }
+    }
+
     /**
      * 改变View的Margin值，如果参数值为-1，表示保留原值
      *
@@ -415,7 +447,7 @@ public class CommonDialog extends Dialog {
             //((ViewGroup.MarginLayoutParams) lp).setMarginsRelative(newLeft, newTop, newRight, newBottom);
             try {
                 Method setMarginsRelative = lp.getClass().getMethod("setMarginsRelative", int.class, int.class, int.class, int.class);
-                setMarginsRelative.invoke(lp,newLeft,newTop,newRight,newBottom);
+                setMarginsRelative.invoke(lp, newLeft, newTop, newRight, newBottom);
             } catch (Exception ignore) {
                 ignore.printStackTrace();
             }
