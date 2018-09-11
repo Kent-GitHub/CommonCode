@@ -408,6 +408,10 @@ public class CommonDialog extends Dialog {
         return bodyTextView;
     }
 
+    public ViewGroup getCustomViewContainer() {
+        return customViewContainer;
+    }
+
     public void setTextViewGravity(TextView view, int gravity) {
         if (view != null) {
             view.setGravity(gravity);
